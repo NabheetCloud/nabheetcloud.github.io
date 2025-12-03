@@ -1,0 +1,29 @@
+# NabheetBlog Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2025-11-05
+
+## Active Technologies
+
+- JavaScript / Node.js 18+ + Eleventy (11ty) v2.0+, Tailwind CSS v3.0+, Prism.js, @tailwindcss/typography (001-tech-blog)
+
+## Project Structure
+
+```text
+src/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+JavaScript / Node.js 18+: Follow standard conventions
+
+## Recent Changes
+
+- 001-tech-blog: Added JavaScript / Node.js 18+ + Eleventy (11ty) v2.0+, Tailwind CSS v3.0+, Prism.js, @tailwindcss/typography
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->

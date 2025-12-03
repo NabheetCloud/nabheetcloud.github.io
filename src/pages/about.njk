@@ -1,0 +1,115 @@
+---
+layout: layouts/page.njk
+title: About
+description: Building the future of engineering — one insight at a time
+permalink: /about/
+---
+
+<div class="not-prose mb-12 flex flex-col md:flex-row items-center gap-8">
+  {# Author Portrait #}
+  <div class="flex-shrink-0">
+    <img 
+      src="{{ author.portrait }}" 
+      alt="{{ author.name }}" 
+      class="w-48 h-48 rounded-full object-cover shadow-lg grayscale hover:grayscale-0 transition-all duration-300"
+      loading="lazy">
+  </div>
+  
+  {# Author Name and Role #}
+  <div class="flex-1 text-center md:text-left">
+    <h2 class="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+      {{ author.name }}
+    </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
+      Technology enthusiast exploring the intersection of <strong>AI, backend systems, cloud, and enterprise platforms</strong>.
+    </p>
+    
+    {# Social Links #}
+    <div class="flex gap-4 justify-center md:justify-start">
+      {% if author.social.github %}
+      <a 
+        href="https://github.com/{{ author.social.github }}" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-accent-light dark:hover:bg-accent-dark hover:text-white transition-all duration-200"
+        aria-label="GitHub">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      {% endif %}
+      
+      {% if author.social.linkedin %}
+      <a 
+        href="https://linkedin.com/in/{{ author.social.linkedin }}" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-accent-light dark:hover:bg-accent-dark hover:text-white transition-all duration-200"
+        aria-label="LinkedIn">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+        </svg>
+      </a>
+      {% endif %}
+      
+      {% if author.social.twitter %}
+      <a 
+        href="https://twitter.com/{{ author.social.twitter }}" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-accent-light dark:hover:bg-accent-dark hover:text-white transition-all duration-200"
+        aria-label="Twitter">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+        </svg>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{# Mission Statement Callout #}
+<div class="not-prose my-12 p-6 rounded-lg bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-800">
+  <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+    Mission
+  </h3>
+  <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+    To share practical insights from real-world engineering—building scalable systems, experimenting with AI, and simplifying complex architectures.
+  </p>
+</div>
+
+{# Bio Content #}
+<div class="space-y-6">
+  <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+    I'm a full-stack engineer and technical architect with over a decade of experience designing <strong>distributed systems, headless commerce platforms, ERP and SAP extensions, and AI-powered applications</strong>.
+  </p>
+  
+  <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+    My interests span <strong>system design, GraphQL APIs, DevOps, and backend performance optimization</strong>.
+  </p>
+  
+  <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+    When I'm not writing code, you'll find me exploring new AI models, contributing to open source, learning something new or distilling technical lessons into writing.
+  </p>
+  
+  <h3 class="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-gray-100">Topics</h3>
+  <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+    <li>Artificial Intelligence & Machine Learning</li>
+    <li>System Design & Architecture</li>
+    <li>Backend Engineering (Node.js, Python, Go)</li>
+    <li>Headless Commerce (Saleor, Shopify)</li>
+    <li>ERP & Enterprise Systems (ERPNext, Odoo, SAP)</li>
+    <li>Databases SQL,NoSQL etc..</li>
+    <li>Modern Web Development</li>
+    <li>Data Warehouse, Data Lakes and  Data Lakehouse </li>
+    <li>Cloud Infrastructure & DevOps</li>
+    <li>Mobile Applications</li>
+  </ul>
+  
+  <h3 class="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-gray-100">Connect</h3>
+  <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+    Always happy to connect with fellow engineers, discuss ideas, and share experiences. Find me on social platforms linked above — or just dive into the content here.
+    <br><b>Keep Sharing Keep Learning</b>
+  </p>
+</div>
+

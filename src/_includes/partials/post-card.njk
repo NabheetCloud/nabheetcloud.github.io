@@ -1,0 +1,39 @@
+<article class="group p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent-light dark:hover:border-accent-dark hover:shadow-lg transition-all duration-300">
+  {# Post Title #}
+  <a href="{{ post.url }}" class="block mb-2">
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">
+      {{ post.data.title }}
+    </h3>
+  </a>
+  
+  {# Date and Reading Time #}
+  <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mb-3">
+    <time datetime="{{ post.data.date }}">
+      {{ post.data.date | dateFormat }}
+    </time>
+    <span>•</span>
+    <span>{{ post.templateContent | readingTime }} min read</span>
+  </div>
+  
+  {# Excerpt #}
+  <a href="{{ post.url }}" class="block mb-4">
+    <p class="text-gray-700 dark:text-gray-300 line-clamp-3">
+      {{ post.data.excerpt or (post.templateContent | excerpt) }}
+    </p>
+  </a>
+  
+  {# Tags - T047: Make tags clickable #}
+  {% if post.data.tags and post.data.tags.length > 0 %}
+  <div class="flex flex-wrap gap-2">
+    {% for tagSlug in post.data.tags %}
+      {% set tagData = tagMeta | find("slug", tagSlug) %}
+      <a href="/tags/{{ tagSlug | slug }}/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: {% if tagData %}{{ tagData.color }}{% else %}#E5E7EB{% endif %}; color: white;">
+        {% if tagData %}{{ tagData.name }}{% else %}{{ tagSlug }}{% endif %}
+      </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
+

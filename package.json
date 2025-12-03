@@ -1,0 +1,31 @@
+{
+  "name": "nabheetblog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run css:watch & npx @11ty/eleventy --serve",
+    "build": "npm run css:build && npx @11ty/eleventy",
+    "css:watch": "npx tailwindcss -i src/assets/styles/tailwind.css -o dist/assets/styles/main.css --watch",
+    "css:build": "NODE_ENV=production npx tailwindcss -i src/assets/styles/tailwind.css -o dist/assets/styles/main.css --minify",
+    "serve": "npm run build && npx serve dist",
+    "lint": "eslint src/assets/js/**/*.js",
+    "format": "prettier --write 'src/**/*.{njk,md,js,json,css}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.1",
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "tailwindcss": "^3.4.0"
+  }
+}

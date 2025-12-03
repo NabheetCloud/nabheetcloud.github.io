@@ -1,0 +1,17 @@
+{
+  "name": "Nabheet Madan",
+  "short_bio": "Engineering leader building scalable systems at the intersection of AI, commerce, and developer tools.",
+  "long_bio": "Nabheet is a full-stack engineer and technical architect with 10+ years experience building distributed systems, headless commerce platforms, and AI-powered applications. He specializes in system design, GraphQL APIs, and developer experience optimization. When not writing code, he's exploring new AI models, contributing to open-source, or sharing learnings through technical writing.",
+  "portrait": "/assets/images/posts/nabheet.jpeg",
+  "portrait_alt": "Portrait of Nabheet Madan",
+  "role": "Senior Engineering Leader",
+  "location": "San Francisco, CA",
+  "email": "",
+  "social": {
+    "github": "NabheetCloud",
+    "linkedin": "nabheet-madan-80594821",
+    "twitter": "nabheet",
+    "website": ""
+  }
+}
+

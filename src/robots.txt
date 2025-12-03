@@ -1,0 +1,10 @@
+# T072: Robots.txt for search engine crawling
+User-agent: *
+Allow: /
+
+# Sitemap location (update domain when deployed)
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Disallow admin/private areas (if any in future)
+# Disallow: /admin/
+

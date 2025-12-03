@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "ai",
+    "name": "Artificial Intelligence",
+    "description": "Deep dives into machine learning, LLMs, and AI architecture patterns",
+    "color": "#8B5CF6"
+  },
+  {
+    "slug": "system-design",
+    "name": "System Design",
+    "description": "Scalable architecture, distributed systems, and infrastructure patterns",
+    "color": "#10B981"
+  },
+  {
+    "slug": "saleor",
+    "name": "Saleor Commerce",
+    "description": "Headless commerce platform, GraphQL APIs, and ecommerce integrations",
+    "color": "#3B82F6"
+  },
+  {
+    "slug": "erpnext",
+    "name": "ERPNext",
+    "description": "Open-source ERP system, customization, and enterprise integration",
+    "color": "#F59E0B"
+  },
+  {
+    "slug": "graphql",
+    "name": "GraphQL",
+    "description": "GraphQL APIs, schema design, and best practices",
+    "color": "#EC4899"
+  },
+  {
+    "slug": "performance",
+    "name": "Performance",
+    "description": "Web performance optimization, compression, caching, and speed improvements",
+    "color": "#F59E0B"
+  }
+]
+

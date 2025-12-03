@@ -1,0 +1,15 @@
+# Build output
+dist/
+build/
+_site/
+
+# Dependencies
+node_modules/
+
+# Coverage
+coverage/
+
+# Cache
+.cache/
+.eleventy-cache/
+

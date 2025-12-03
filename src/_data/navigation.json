@@ -1,0 +1,77 @@
+{
+  "main": [
+    {
+      "title": "Home",
+      "url": "/",
+      "dropdown": false
+    },
+    {
+      "title": "Posts",
+      "dropdown": true,
+      "items": [
+        {
+          "title": "All Posts",
+          "url": "/archive/"
+        },
+        {
+          "title": "By Tag",
+          "url": "/tags/ai/"
+        }
+      ]
+    },
+    {
+      "title": "Open Source",
+      "dropdown": true,
+      "enabled": false,
+      "items": [
+        {
+          "title": "Coming soon...",
+          "disabled": true
+        }
+      ],
+      "comingSoon": true
+    },
+    {
+      "title": "SAP",
+      "dropdown": true,
+      "enabled": false,
+      "items": [
+        {
+          "title": "Coming soon...",
+          "disabled": true
+        }
+      ],
+      "comingSoon": true
+    },
+    {
+      "title": "ERPNext",
+      "dropdown": true,
+      "enabled": false,
+      "items": [
+        {
+          "title": "Coming soon...",
+          "disabled": true
+        }
+      ],
+      "comingSoon": true
+    },
+    {
+      "title": "AI",
+      "dropdown": true,
+      "enabled": false,
+      "items": [
+        {
+          "title": "Coming soon...",
+          "disabled": true
+        }
+      ],
+      "comingSoon": true
+    },
+    {
+      "title": "About",
+      "url": "/about/",
+      "dropdown": false
+    }
+  ]
+}
+

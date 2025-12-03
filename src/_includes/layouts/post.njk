@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="max-w-4xl mx-auto px-4 py-12">
+  {# Post header #}
+  <header class="mb-8">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+      {{ title }}
+    </h1>
+    
+    <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <time datetime="{{ date }}">
+        {{ date | dateFormat }}
+      </time>
+      <span>•</span>
+      <span>{{ content | readingTime }} min read</span>
+    </div>
+    
+    {# Tags #}
+    {% if tags %}
+    <div class="flex flex-wrap gap-2 mt-4">
+      {% for tag in tags %}
+      <a href="/tags/{{ tag }}/" 
+         class="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+        {{ tag }}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+  
+  {# Post content with prose styling #}
+  <div class="prose dark:prose-dark max-w-none mb-12">
+    {{ content | safe }}
+  </div>
+  
+  {# Share buttons #}
+  <footer class="border-t border-gray-200 dark:border-gray-800 pt-8">
+    {% include "partials/share-buttons.njk" %}
+    
+    {# Related posts section #}
+    {% set relatedPostsList = collections.posts | relatedPosts(page, 3) %}
+    {% if relatedPostsList.length > 0 %}
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Related Posts</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {% for post in relatedPostsList %}
+        <a href="{{ post.url }}" class="block p-4 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-colors">
+          <h3 class="font-semibold mb-2 text-gray-900 dark:text-gray-100">{{ post.data.title }}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ post.data.excerpt or (post.templateContent | excerpt) }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </footer>
+</article>
+

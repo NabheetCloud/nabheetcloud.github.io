@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nabheetblog.com/schemas/post-frontmatter.json",
+  "title": "Blog Post Frontmatter",
+  "description": "Validation schema for YAML frontmatter in Markdown blog posts",
+  "type": "object",
+  "required": ["title", "date", "author", "tags"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Post title (used in <h1>, <title>, OpenGraph)",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[^<>\"']+$"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly identifier (auto-generated from title if omitted)",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "date": {
+      "type": "string",
+      "description": "Publication date (ISO 8601 format: YYYY-MM-DD)",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "updated": {
+      "type": "string",
+      "description": "Last updated date (ISO 8601 format: YYYY-MM-DD)",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author name (must match author.name in _data/author.json)",
+      "minLength": 2,
+      "maxLength": 50
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Custom excerpt (defaults to first 150 chars of content)",
+      "minLength": 100,
+      "maxLength": 300
+    },
+    "tags": {
+      "type": "array",
+      "description": "Array of tag slugs (e.g., ['ai', 'system-design'])",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "uniqueItems": true
+    },
+    "featured_image": {
+      "type": "string",
+      "description": "Path to featured image (used in OpenGraph, post header)",
+      "pattern": "^/assets/images/.+\\.(jpg|jpeg|png|webp|gif)$"
+    },
+    "featured_image_alt": {
+      "type": "string",
+      "description": "Alt text for featured image (required if featured_image present)",
+      "minLength": 10,
+      "maxLength": 150
+    },
+    "draft": {
+      "type": "boolean",
+      "description": "If true, post excluded from production builds",
+      "default": false
+    },
+    "permalink": {
+      "type": "string",
+      "description": "Custom permalink (default: /posts/{{ slug }}/)",
+      "pattern": "^/.+/$"
+    },
+    "layout": {
+      "type": "string",
+      "description": "Template layout (default: 'layouts/post.njk')",
+      "pattern": "^layouts/.+\\.njk$",
+      "default": "layouts/post.njk"
+    }
+  },
+  "dependencies": {
+    "featured_image": ["featured_image_alt"]
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "title": "Building a Saleor Commerce App with GraphQL",
+      "slug": "building-saleor-app",
+      "date": "2025-11-01",
+      "author": "Nabheet Madan",
+      "excerpt": "Learn how to build a custom Saleor app using GraphQL subscriptions and webhooks for real-time inventory management.",
+      "tags": ["saleor", "graphql", "ecommerce"],
+      "featured_image": "/assets/images/posts/saleor-architecture.jpg",
+      "featured_image_alt": "Saleor app architecture diagram showing GraphQL API and webhook flows",
+      "draft": false
+    }
+  ]
+}
+
