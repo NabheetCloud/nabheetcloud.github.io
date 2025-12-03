@@ -68,19 +68,7 @@ Expect deep dives into:
 
 ---
 
-## A Quick Glimpse of Code
-
-```javascript
-// Calculate Fibonacci sequence
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-console.log(fibonacci(10)); // 55
-```
-
 This blog is my way of keeping score — sharing wins, losses, and everything in between.
 
-Let's learn together. 🚀
+Let's learn together. 
 
