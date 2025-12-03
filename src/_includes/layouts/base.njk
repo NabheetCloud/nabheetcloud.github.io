@@ -41,61 +41,48 @@
   <meta name="twitter:creator" content="@{{ author.social.twitter }}">
   {% endif %}
   
-  {# T074: Preconnect to Google Fonts for faster font loading #}
+  {# T074: Preconnect to Google Fonts #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  {# Load Inter and JetBrains Mono fonts with font-display: swap #}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  {# Load compiled Tailwind CSS #}
-  <link rel="stylesheet" href="/assets/styles/main.css">
-  
-  {# Load Prism.js theme for syntax highlighting #}
+
+  {# FIXED CSS PATHS — use actual build output #}
+  <link rel="stylesheet" href="/assets/styles/tailwind.css">
   <link rel="stylesheet" href="/assets/styles/prism-theme.css">
-  
-  {# T056 & T057: Theme detection script (inline to prevent flash) - Defaults to dark mode #}
+
+  {# Theme detection #}
   <script>
-    // Immediately apply theme before page renders to prevent flash
     (function() {
-      // Default to dark mode, or use stored preference, or system preference
       const theme = localStorage.getItem('theme') || 
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark');
-      
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
-  
+
   {% block head %}{% endblock %}
 </head>
+
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
   
-  {# T076: Skip to main content link for accessibility #}
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent-light focus:text-white focus:rounded-lg">
     Skip to main content
   </a>
   
-  {# Reading progress bar (only on post pages) #}
   {% if layout == "layouts/post.njk" %}
     {% include "partials/reading-progress.njk" %}
   {% endif %}
-  
-  {# Header navigation #}
+
   {% include "partials/header.njk" %}
   
-  {# Main content #}
   <main id="main-content">
     {{ content | safe }}
   </main>
   
-  {# Footer #}
   {% include "partials/footer.njk" %}
   
-  {# JavaScript files #}
   <script src="/assets/js/theme-toggle.js" defer></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>
-
