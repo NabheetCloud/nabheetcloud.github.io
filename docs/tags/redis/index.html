@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Posts tagged &#39;redis&#39; | Tech Learnings</title>
+  
+  
+  <meta name="description" content="All posts tagged with redis">
+  <meta name="author" content="Nabheet Madan">
+  
+  
+  <meta property="og:title" content="Posts tagged &#39;redis&#39; | Tech Learnings">
+  <meta property="og:description" content="All posts tagged with redis">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/tags/redis/">
+  
+  <meta property="og:image" content="/assets/images/og-default.jpg">
+  <meta property="og:image:alt" content="Tech Learnings - Engineering Insights">
+  
+  <meta property="og:site_name" content="Tech Learnings">
+  
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Posts tagged &#39;redis&#39; | Tech Learnings">
+  <meta name="twitter:description" content="All posts tagged with redis">
+  
+  <meta name="twitter:image" content="/assets/images/og-default.jpg">
+  <meta name="twitter:image:alt" content="Tech Learnings - Engineering Insights">
+  
+  
+  <meta name="twitter:site" content="@nabheet">
+  <meta name="twitter:creator" content="@nabheet">
+  
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="/assets/styles/main.css">
+  
+  
+  <link rel="stylesheet" href="/assets/styles/prism-theme.css">
+  
+  
+  <script>
+    // Immediately apply theme before page renders to prevent flash
+    (function() {
+      // Default to dark mode, or use stored preference, or system preference
+      const theme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark');
+      
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  
+  
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  
+  
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent-light focus:text-white focus:rounded-lg">
+    Skip to main content
+  </a>
+  
+  
+  
+  
+  
+  <header class="border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-gray-900 z-50">
+  <nav class="max-w-6xl mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      
+      <a href="/" class="text-2xl font-bold text-gray-900 dark:text-gray-100 hover:text-accent-light dark:hover:text-accent-dark transition-colors">
+        Tech Learnings
+      </a>
+      
+      
+      <div class="hidden md:flex items-center gap-6">
+        <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors">
+          Home
+        </a>
+        
+        
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors">
+            Posts
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <a href="/archive/" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-lg">All Posts</a>
+            <a href="/tags/ai/" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">By Tag</a>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <a href="/about/" class="text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark transition-colors">
+          About
+        </a>
+        
+        
+        <button 
+          id="theme-toggle" 
+          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+          aria-label="Toggle theme">
+          <svg class="sun-icon w-5 h-5 text-gray-700 dark:text-gray-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="moon-icon w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+      
+      
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-800 pt-4">
+      <a href="/" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark">Home</a>
+      <a href="/archive/" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark">Posts</a>
+      
+      <a href="/about/" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-light dark:hover:text-accent-dark">About</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    menu?.classList.toggle('hidden');
+  });
+</script>
+
+  
+  
+  <main id="main-content">
+    
+<div class="max-w-6xl mx-auto px-4 py-8 md:py-12">
+  
+  <header class="mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+      Posts tagged: <span class="text-accent-light dark:text-accent-dark">redis</span>
+    </h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400">
+      1 post found
+    </p>
+  </header>
+
+  
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    
+      <article class="group p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent-light dark:hover:border-accent-dark hover:shadow-lg transition-all duration-300">
+  
+  <a href="/posts/2025-12-03-API-Optimization/" class="block mb-2">
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">
+      From 797ms to 5ms: My Journey Optimizing a 10K-Rows / 1.3 MB response size Product API with Postgres, Redis, NGINX &amp; Go
+    </h3>
+  </a>
+  
+  
+  <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mb-3">
+    <time datetime="Wed Dec 03 2025 05:30:00 GMT+0530 (India Standard Time)">
+      December 3, 2025
+    </time>
+    <span>•</span>
+    <span>4 min read</span>
+  </div>
+  
+  
+  <a href="/posts/2025-12-03-API-Optimization/" class="block mb-4">
+    <p class="text-gray-700 dark:text-gray-300 line-clamp-3">
+      A deep engineering journey: taking a 10M-row Postgres dataset and reducing API latency from 797ms → 350ms → 310ms → 2.9ms → 5ms → 1ms using indexing, materialized views, Redis, NGINX caching, and finally a Go rewrite.
+    </p>
+  </a>
+  
+  
+  
+  <div class="flex flex-wrap gap-2">
+    
+      
+      <a href="/tags/postgres/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #E5E7EB; color: white;">
+        postgres
+      </a>
+    
+      
+      <a href="/tags/system-design/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #10B981; color: white;">
+        System Design
+      </a>
+    
+      
+      <a href="/tags/performance/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #F59E0B; color: white;">
+        Performance
+      </a>
+    
+      
+      <a href="/tags/go/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #E5E7EB; color: white;">
+        go
+      </a>
+    
+      
+      <a href="/tags/redis/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #E5E7EB; color: white;">
+        redis
+      </a>
+    
+      
+      <a href="/tags/nginx/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #E5E7EB; color: white;">
+        nginx
+      </a>
+    
+      
+      <a href="/tags/caching/" 
+         class="px-2 py-1 text-xs font-medium rounded-full transition-colors duration-200"
+         style="background-color: #E5E7EB; color: white;">
+        caching
+      </a>
+    
+  </div>
+  
+</article>
+
+
+    
+  </div>
+
+  
+  <div class="mt-12 text-center">
+    <a href="/" class="inline-block px-6 py-3 rounded-lg bg-accent-light dark:bg-accent-dark text-white font-medium hover:opacity-90 transition-opacity duration-200">
+      ← Back to Home
+    </a>
+  </div>
+</div>
+
+
+  </main>
+  
+  
+  <footer class="border-t border-gray-200 dark:border-gray-800 mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        © 2025 Nabheet Madan. All rights reserved.
+      </p>
+      
+      
+      <div class="flex items-center gap-4">
+        
+        <a href="https://github.com/NabheetCloud" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="text-gray-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark transition-colors"
+           aria-label="GitHub">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        
+        
+        
+        <a href="https://linkedin.com/in/nabheet-madan-80594821" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="text-gray-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark transition-colors"
+           aria-label="LinkedIn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+          </svg>
+        </a>
+        
+        
+        
+        <a href="https://twitter.com/nabheet" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="text-gray-600 dark:text-gray-400 hover:text-accent-light dark:hover:text-accent-dark transition-colors"
+           aria-label="Twitter">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </svg>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+  <script src="/assets/js/theme-toggle.js" defer></script>
+  
+</body>
+</html>
+
