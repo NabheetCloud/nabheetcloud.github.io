@@ -34,6 +34,36 @@
     "name": "Performance",
     "description": "Web performance optimization, compression, caching, and speed improvements",
     "color": "#F59E0B"
+  },
+  {
+    "slug": "postgres",
+    "name": "PostgreSQL",
+    "description": "PostgreSQL database, SQL optimization, and data modeling",
+    "color": "#336791"
+  },
+  {
+    "slug": "go",
+    "name": "Go",
+    "description": "Go programming language, concurrency patterns, and backend development",
+    "color": "#00ADD8"
+  },
+  {
+    "slug": "redis",
+    "name": "Redis",
+    "description": "Redis in-memory data store, caching strategies, and pub/sub patterns",
+    "color": "#DC382D"
+  },
+  {
+    "slug": "nginx",
+    "name": "Nginx",
+    "description": "Nginx web server, reverse proxy, load balancing, and configuration",
+    "color": "#009639"
+  },
+  {
+    "slug": "caching",
+    "name": "Caching",
+    "description": "Caching strategies, cache invalidation, and performance optimization",
+    "color": "#6366F1"
   }
 ]
 
