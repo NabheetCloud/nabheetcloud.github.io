@@ -118,7 +118,7 @@ module.exports = function(eleventyConfig) {
     return related;
   });
   
-  // T079: Minify HTML output in production
+  // T079: Minify HTML output in production1
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
     if (process.env.NODE_ENV === 'production' && outputPath && outputPath.endsWith('.html')) {
       return htmlmin.minify(content, {
