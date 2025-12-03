@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "npm run css:watch & npx @11ty/eleventy --serve",
     "build": "npm run css:build && npx @11ty/eleventy",
-    "css:watch": "npx tailwindcss -i src/assets/styles/tailwind.css -o dist/assets/styles/main.css --watch",
-    "css:build": "NODE_ENV=production npx tailwindcss -i src/assets/styles/tailwind.css -o dist/assets/styles/main.css --minify",
+    "css:watch": "npx tailwindcss -i src/assets/styles/tailwind.css -o src/assets/styles/main.css --watch",
+    "css:build": "NODE_ENV=production npx tailwindcss -i src/assets/styles/tailwind.css -o src/assets/styles/main.css --minify",
     "serve": "npm run build && npx serve dist",
     "lint": "eslint src/assets/js/**/*.js",
     "format": "prettier --write 'src/**/*.{njk,md,js,json,css}'"

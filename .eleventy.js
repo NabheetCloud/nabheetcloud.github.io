@@ -12,6 +12,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/styles');  // ⭐ critical fix
   eleventyConfig.addPassthroughCopy('src/assets/styles/prism-theme.css');
   eleventyConfig.addPassthroughCopy('src/robots.txt');
+  eleventyConfig.addPassthroughCopy("src/assets/styles/main.css");
+
 
   // Watch CSS files for changes
   eleventyConfig.addWatchTarget('src/assets/styles/**/*.css');
