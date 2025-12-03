@@ -3,29 +3,32 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const htmlmin = require('html-minifier');
 
 module.exports = function(eleventyConfig) {
+
+  // ------------------------------
   // Passthrough copy for assets
+  // ------------------------------
   eleventyConfig.addPassthroughCopy('src/assets/images');
   eleventyConfig.addPassthroughCopy('src/assets/js');
+  eleventyConfig.addPassthroughCopy('src/assets/styles');  // ⭐ critical fix
   eleventyConfig.addPassthroughCopy('src/assets/styles/prism-theme.css');
   eleventyConfig.addPassthroughCopy('src/robots.txt');
-  
+
   // Watch CSS files for changes
   eleventyConfig.addWatchTarget('src/assets/styles/**/*.css');
-  
-  // T023: Add syntax highlighting plugin (Prism.js)
+
+  // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
-  
-  // T024: Add RSS/sitemap plugin
   eleventyConfig.addPlugin(pluginRss);
-  
-  // T021: Configure collections
+
+  // ------------------------------
+  // Collections
+  // ------------------------------
   eleventyConfig.addCollection('posts', (collection) => {
     return collection.getFilteredByGlob('src/posts/*.md')
-      .filter(post => !post.data.draft) // Exclude drafts in production
-      .sort((a, b) => b.date - a.date); // Sort by date descending
+      .filter(post => !post.data.draft)
+      .sort((a, b) => b.date - a.date);
   });
-  
-  // T046: Create tag collections for pagination
+
   eleventyConfig.addCollection('tagList', (collection) => {
     const tagSet = new Set();
     collection.getFilteredByGlob('src/posts/*.md').forEach(post => {
@@ -35,17 +38,19 @@ module.exports = function(eleventyConfig) {
     });
     return [...tagSet].sort();
   });
-  
-  // T022: Add filters
-  
-  // Reading time filter (word count / 200 words per minute)
+
+  // ------------------------------
+  // Filters
+  // ------------------------------
+
+  // Reading time
   eleventyConfig.addFilter('readingTime', (content) => {
-    if (!content) return 1; // Default to 1 min if no content
+    if (!content) return 1;
     const words = content.split(/\s+/).length;
     return Math.ceil(words / 200);
   });
-  
-  // Date format filter (human-readable date)
+
+  // Date format
   eleventyConfig.addFilter('dateFormat', (date) => {
     return new Date(date).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -53,42 +58,37 @@ module.exports = function(eleventyConfig) {
       day: 'numeric'
     });
   });
-  
-  // Excerpt filter (first 150 characters)
+
+  // Excerpt filter
   eleventyConfig.addFilter('excerpt', (content) => {
-    if (!content) return ''; // Return empty string if no content
-    const excerpt = content.replace(/(<([^>]+)>)/gi, ''); // Strip HTML tags
+    if (!content) return '';
+    const excerpt = content.replace(/(<([^>]+)>)/gi, '');
     return excerpt.substring(0, 150) + (excerpt.length > 150 ? '...' : '');
   });
-  
-  // Limit filter (limit array to n items)
-  eleventyConfig.addFilter('limit', (array, limit) => {
-    return array.slice(0, limit);
-  });
-  
-  // Find filter (find item in array by property)
+
+  // Limit array
+  eleventyConfig.addFilter('limit', (array, limit) => array.slice(0, limit));
+
+  // Find in array by property
   eleventyConfig.addFilter('find', (array, property, value) => {
     if (!array || !Array.isArray(array)) return null;
     return array.find(item => item[property] === value);
   });
-  
-  // Related posts filter (will be implemented in User Story 1 - T030)
+
+  // Related posts
   eleventyConfig.addFilter('relatedPosts', (collection, currentPost, limit = 3) => {
-    // Guard against undefined or invalid inputs
     if (!currentPost || !currentPost.data) {
       return collection.slice(0, limit);
     }
-    
-    // Find posts with overlapping tags
+
     const currentTags = currentPost.data.tags || [];
-    
+
     if (currentTags.length === 0) {
-      // No tags, return recent posts
       return collection
         .filter(post => post.url !== currentPost.url)
         .slice(0, limit);
     }
-    
+
     const related = collection
       .filter(post => post.url !== currentPost.url)
       .map(post => {
@@ -98,27 +98,25 @@ module.exports = function(eleventyConfig) {
       })
       .filter(item => item.matchCount > 0)
       .sort((a, b) => {
-        // Sort by match count desc, then date desc
-        if (b.matchCount !== a.matchCount) {
-          return b.matchCount - a.matchCount;
-        }
+        if (b.matchCount !== a.matchCount) return b.matchCount - a.matchCount;
         return b.post.date - a.post.date;
       })
       .slice(0, limit)
       .map(item => item.post);
-    
-    // If not enough related posts, fill with recent posts
+
     if (related.length < limit) {
       const recentPosts = collection
         .filter(post => post.url !== currentPost.url && !related.includes(post))
         .slice(0, limit - related.length);
       return [...related, ...recentPosts];
     }
-    
+
     return related;
   });
-  
-  // T079: Minify HTML output in production1
+
+  // ------------------------------
+  // HTML minification in production
+  // ------------------------------
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
     if (process.env.NODE_ENV === 'production' && outputPath && outputPath.endsWith('.html')) {
       return htmlmin.minify(content, {
@@ -131,9 +129,12 @@ module.exports = function(eleventyConfig) {
     }
     return content;
   });
-  
+
+  // ------------------------------
+  // FINAL: Directory & prefix config
+  // ------------------------------
   return {
-    pathPrefix: "/",  
+    pathPrefix: "/",     // ⭐ REQUIRED for GitHub Pages fixing CSS/JS 404
     dir: {
       input: 'src',
       output: '_site',
@@ -145,4 +146,3 @@ module.exports = function(eleventyConfig) {
     dataTemplateEngine: 'njk'
   };
 };
-
